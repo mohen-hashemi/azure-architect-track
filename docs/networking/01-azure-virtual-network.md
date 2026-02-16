@@ -87,3 +87,45 @@ Prod: 10.3.0.0/16
 
 \- UDR to force traffic through firewall
 
+
+
+\## Enterprise Hub-Spoke Design Scenario
+
+
+
+In large enterprise environments, Azure Virtual Network architecture is typically implemented using a Hub-Spoke model.
+
+
+
+\- Hub VNet:
+
+&nbsp; - VPN Gateway / ExpressRoute
+
+&nbsp; - Azure Firewall
+
+&nbsp; - Bastion
+
+&nbsp; - Shared services
+
+
+
+\- Spoke VNets:
+
+&nbsp; - Application workloads
+
+&nbsp; - Isolated environments (Prod / Dev / Test)
+
+
+
+Benefits:
+
+\- Centralized security
+
+\- Simplified routing
+
+\- Network segmentation
+
+\- Scalability
+
+
+
