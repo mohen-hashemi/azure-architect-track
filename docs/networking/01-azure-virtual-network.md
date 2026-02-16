@@ -6,19 +6,84 @@ Azure Virtual Network is the fundamental building block for private networking i
 
 ## Key Components
 
-- Address space (CIDR)
-- Subnets
-- Network Security Groups
-- Route Tables
-- Peering
-- NAT Gateway
-- VPN Gateway
-- ExpressRoute
+* Address space (CIDR)
+* Subnets
+* Network Security Groups
+* Route Tables
+* Peering
+* NAT Gateway
+* VPN Gateway
+* ExpressRoute
 
 ## Architectural Role
 
 VNet provides isolation, segmentation, and secure connectivity between:
 
-- Azure resources
-- On-premises infrastructure
-- Other VNets
+* Azure resources
+* On-premises infrastructure
+* Other VNets
+
+
+
+\## Enterprise Design Scenario
+
+
+
+\### Requirements
+
+
+
+\- Separate environments: Dev, Test, Prod
+
+\- On-premises connectivity
+
+\- Internet access control
+
+\- Network segmentation
+
+\- High availability
+
+
+
+\### Proposed Architecture
+
+
+
+\- Hub-Spoke topology
+
+\- Dedicated VNet per environment
+
+\- Centralized Firewall in Hub
+
+\- VPN Gateway in Hub
+
+\- Peering between Hub and Spokes
+
+
+
+\### Addressing Strategy
+
+
+
+Hub: 10.0.0.0/16
+
+Dev: 10.1.0.0/16
+
+Test: 10.2.0.0/16
+
+Prod: 10.3.0.0/16
+
+
+
+\### Design Decisions
+
+
+
+\- Hub-Spoke chosen for centralized control
+
+\- Separate address spaces to prevent overlap
+
+\- NSG per subnet for segmentation
+
+\- UDR to force traffic through firewall
+
