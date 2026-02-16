@@ -1,0 +1,13 @@
+flowchart LR
+  OnPrem[On-Premises] -->|VPN/ER| Hub[Hub VNet 10.0.0.0/16]
+  Hub --> FW[Azure Firewall]
+  Hub --> GW[GatewaySubnet]
+  Hub --> Bastion[Azure Bastion (opt)]
+
+  Hub -->|Peering| Dev[Dev Spoke 10.1.0.0/16]
+  Hub -->|Peering| Test[Test Spoke 10.2.0.0/16]
+  Hub -->|Peering| Prod[Prod Spoke 10.3.0.0/16]
+
+  Dev --> AppsDev[Workloads]
+  Test --> AppsTest[Workloads]
+  Prod --> AppsProd[Workloads]
